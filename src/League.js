@@ -15,6 +15,22 @@ function League(props){
             </div>
             <label>{props.history.length}</label>
             <Matches matches={props.history} setGoals={props.setGoals}/>
+            <div>
+                <table>
+                    <th>Name</th>
+                    <th>Goals</th>
+                    {
+                        props.soccers.map((soccer)=>{
+                            return(
+                                <tr>
+                                    <td>{soccer.name}</td>
+                                    <td>{soccer.goals}</td>
+                                </tr>
+                            )
+                        })
+                    }
+                </table>
+            </div>
         </div>
     )
 }

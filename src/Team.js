@@ -12,6 +12,15 @@ function Team(props){
                     );
                 })
             }
+            <div>
+                <h1>Stats:</h1>
+                <div>first half goals  VS second half goals</div>
+                <div>the earlier goal: </div>
+                <div>the last goal:</div>
+                <div>the cycle with most goals:</div>
+                <div>the cycle with last goals:</div>
+            </div>
+
         </div>
     )
 }
