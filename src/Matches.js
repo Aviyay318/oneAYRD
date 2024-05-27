@@ -2,10 +2,10 @@ import React from "react";
 
 function Matches(props){
     return(
-        <div>
+        <div id="matches-container">
             <h2>Matches</h2>
             {
-                <table>
+                <table id={"matches-table"}>
                     <tr>
                         <th>Round</th>
                         <th>HomeTeam</th>

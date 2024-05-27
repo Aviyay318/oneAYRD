@@ -32,7 +32,7 @@ class App extends React.Component{
 
     }
     getHistory=(leagueId)=>{
-        axios.get(`http://app.seker.live/fm1/history/${leagueId}`).then(
+        axios.get(`https://app.seker.live/fm1/history/${leagueId}`).then(
             response=>{
                 this.setState({leagueHistory:response.data,filterLeagueHistory:response.data},()=>this.setMinAndMaxCycle())
             })
@@ -91,11 +91,12 @@ class App extends React.Component{
             <div className="App">
                 <div id={"main-container"}>
                     <div id={"header-container"}>
-                        <h1>TWO (New ONE)</h1>
+                        <label style={{fontSize:70, fontWeight:"bold"}}>Welcome to TWO</label>
+                        <label style={{fontSize:50}}> (The better <img style={{width:130}} src={"./oldone.png"} alt={"one"}/> )</label>
                     </div>
                     <div id={"dashboard-container"}>
                         <div id={"sidebar-container"}>
-                            <div>
+                            <div id={"leagues-container"}>
                                 <h2>Leagues</h2>
                                 {
                                     this.state.leagues.map((league)=>{
@@ -106,7 +107,7 @@ class App extends React.Component{
                                 }
                             </div>
                             {
-                                this.state.team.length>0&& <div>
+                                this.state.team.length>0&& <div id={"team-container"}>
                                     <h2>Teams</h2>
                                     {
                                         this.state.team.map((team)=>{
@@ -121,10 +122,18 @@ class App extends React.Component{
 
                         <div id={"content-container"}>
                             {
-                                this.state.chosenTeam?
-                                    <Team players={this.state.players} matches={this.state.matches} setGoals={this.setGoals}/>
-                                    : this.state.selectedLeague!==""&&<League history={this.state.filterLeagueHistory} setValue={this.setValue} cycleMin={this.state.cycleMin}
-                                                                              cycleMax={this.state.cycleMax} filter={this.filter} setGoals={this.setGoals} />
+                                this.state.chosenTeam? <Team
+                                        players={this.state.players}
+                                        matches={this.state.matches}
+                                        setGoals={this.setGoals} />
+                                    : this.state.selectedLeague!==""&&<League
+                                    history={this.state.filterLeagueHistory}
+                                    setValue={this.setValue}
+                                    cycleMin={this.state.cycleMin}
+
+                                    cycleMax={this.state.cycleMax}
+                                    filter={this.filter}
+                                    setGoals={this.setGoals} />
                             }
 
                         </div>
