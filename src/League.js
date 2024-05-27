@@ -9,6 +9,7 @@ function League(props){
     }
     return(
         <div id={"league-container"}>
+            <h1>League</h1>
             <h1>League History</h1>
             <div>
                 <p>Choose League Cycle Between 1 and 15:</p>

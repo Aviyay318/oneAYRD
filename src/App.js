@@ -90,29 +90,41 @@ class App extends React.Component{
         return (
             <div className="App">
                 <div id={"main-container"}>
-                    <div id={"header-container"}>
-                        <label style={{fontSize:70, fontWeight:"bold"}}>Welcome to TWO</label>
-                        <label style={{fontSize:50}}> (The better <img style={{width:130}} src={"./oldone.png"} alt={"one"}/> )</label>
-                    </div>
                     <div id={"dashboard-container"}>
                         <div id={"sidebar-container"}>
+                            <div id={"header-container"}>
+                                <label
+                                    style={{fontSize: 35, fontWeight: "bold"}}>
+                                    TWO
+                                </label>
+                                <label
+                                    style={{fontSize: 20}}> (The better
+                                    <img style={{width: 75}} src={"./oldone.png"} alt={"one"}/>)
+                                </label>
+                            </div>
                             <div id={"leagues-container"}>
                                 <h2>Leagues</h2>
                                 {
-                                    this.state.leagues.map((league)=>{
-                                        return(
-                                            <div style={{cursor:"pointer"}} onClick={()=>{this.getTeamByLeague(league.id);this.getHistory(league.id)}}>{league.name}</div>
+                                    this.state.leagues.map((league) => {
+                                        return (
+                                            <div style={{cursor: "pointer"}} onClick={() => {
+                                                this.getTeamByLeague(league.id);
+                                                this.getHistory(league.id)
+                                            }}>{league.name}</div>
                                         )
                                     })
                                 }
                             </div>
                             {
-                                this.state.team.length>0&& <div id={"team-container"}>
+                                this.state.team.length > 0 && <div id={"team-container"}>
                                     <h2>Teams</h2>
                                     {
-                                        this.state.team.map((team)=>{
-                                            return(
-                                                <div style={{cursor:"pointer"}} onClick={() => { this.getMatchesByTeam(team.id); this.getPlayers(team.id); }}>{team.name}</div>
+                                        this.state.team.map((team) => {
+                                            return (
+                                                <div style={{cursor: "pointer"}} onClick={() => {
+                                                    this.getMatchesByTeam(team.id);
+                                                    this.getPlayers(team.id);
+                                                }}>{team.name}</div>
                                             )
                                         })
                                     }
@@ -122,11 +134,11 @@ class App extends React.Component{
 
                         <div id={"content-container"}>
                             {
-                                this.state.chosenTeam? <Team
+                                this.state.chosenTeam ? <Team
                                         players={this.state.players}
                                         matches={this.state.matches}
-                                        setGoals={this.setGoals} />
-                                    : this.state.selectedLeague!==""&&<League
+                                        setGoals={this.setGoals}/>
+                                    : this.state.selectedLeague !== "" && <League
                                     history={this.state.filterLeagueHistory}
                                     setValue={this.setValue}
                                     cycleMin={this.state.cycleMin}
@@ -139,7 +151,7 @@ class App extends React.Component{
                         </div>
                     </div>
                 </div>
-                
+
             </div>
 
         );

@@ -4,6 +4,7 @@ import Matches from "./Matches";
 function Team(props){
     return(
         <div>
+            <h1>Team</h1>
          <Matches matches={props.matches} setGoals={props.setGoals}/>
             <h2>Players:</h2>
             {props.players.map((player) => {

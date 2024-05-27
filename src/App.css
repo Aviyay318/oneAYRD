@@ -9,13 +9,15 @@
   height: 100vh;
   color: #194A03;
   text-shadow: 1px 1px 2px #003f00;
+
+
+}
+.App, #main-container, #header-container{
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
 }
-
 #main-container{
   width: 89%;
   height: 90%;
@@ -24,42 +26,46 @@
   background-color: rgba(255,255,255,0.60);
   box-shadow: #003f00 0 10px 30px 10px;
 
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  justify-content: center;
 }
-#header-container{
-  display: flex;
-  align-items: center;
-  text-align: center;
-  justify-content: center;
-  gap: 10px;
 
-  width: 100%;
-  height: 20%;
-  font-size: 20px;
-}
 #dashboard-container{
   display: flex;
   align-items: center;
   text-align: center;
   justify-content: center;
   width: 100%;
-  height: 90%;
+  height: 100%;
 }
+
 #sidebar-container{
-  flex-grow: 2;
-  align-self: flex-start;
-  height: 79vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: left;
+  /*height: 79vh;*/
+  height: 90%;
   width: 20%;
-  box-shadow: 3px 0 20px 0 #003f00;
-  border-radius: 10px;
+  box-shadow: 2px 0 0 0 #003f00;
 }
-#goals-mvp-container, #matches-container{
-  box-shadow: 3px 0 20px 0 #003f00;
-  border-radius: 10px;
+
+#header-container{
+  width: 100%;
+  height: 100px;
+  font-size: 20px;
 }
+#leagues-container{
+  width: 100%;
+  height: 20%;
+}
+#team-container {
+  width: 100%;
+  height: 55%;
+}
+#leagues-container, #team-container {
+  box-shadow: 0 15px 10px -14px #003f00;
+  font-size: 20px;
+}
+
 #content-container, #leagues-container, #league-container, #team-container, #goals-mvp-container, #matches-container {
   display: flex;
   flex-direction: column;
@@ -69,31 +75,27 @@
 }
 #content-container{
   height: 100%;
-  width: 80%;
+  width: 74%;
   border-radius: 50px;
   gap: 30px;
 }
-#leagues-container, #team-container {
-  box-shadow: 0 20px 20px -14px #003f00;
-  font-size: 20px;
+#goals-mvp-container, #matches-container{
+  box-shadow: 3px 0 20px 0 #003f00;
+  border-radius: 10px;
+}
 
-}
-#leagues-container{
-  width: 100%;
-  height: 25%;
-}
-#team-container {
-  width: 100%;
-  height: 65%;
-}
 #matches-container{
   border-radius: 15px;
   width: 500px;
+  height: 400px;
+  gap: 4px;
 }
 #matches-table{
   width: 350px;
 }
 #goals-mvp-container{
+  width: 500px;
+  height: 200px;
 }
 #goals-mvp-table{
   width: 400px;
