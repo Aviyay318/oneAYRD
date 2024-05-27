@@ -43,14 +43,14 @@
   align-items: flex-start;
   justify-content: left;
   /*height: 79vh;*/
-  height: 90%;
-  width: 20%;
-  box-shadow: 2px 0 0 0 #003f00;
+  height: 96.3%;
+  width: 19.9%;
+  box-shadow: 2px 0 20px 0 #003f00;
 }
 
 #header-container{
   width: 100%;
-  height: 100px;
+  height: 150px;
   font-size: 20px;
 }
 #leagues-container{
@@ -59,7 +59,7 @@
 }
 #team-container {
   width: 100%;
-  height: 55%;
+  height: 60%;
 }
 #leagues-container, #team-container {
   box-shadow: 0 15px 10px -14px #003f00;
@@ -75,7 +75,7 @@
 }
 #content-container{
   height: 100%;
-  width: 74%;
+  width: 82%;
   border-radius: 50px;
   gap: 30px;
 }

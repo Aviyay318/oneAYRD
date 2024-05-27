@@ -90,18 +90,18 @@ class App extends React.Component{
         return (
             <div className="App">
                 <div id={"main-container"}>
+                    <div id={"header-container"}>
+                        <label
+                            style={{fontSize: 60, fontWeight: "bold"}}>
+                            Welcome to TWO
+                            <label
+                                style={{fontSize: 50}}> (The better
+                                <img style={{width: 130}} src={"./oldone.png"} alt={"one"}/> )
+                            </label>
+                        </label>
+                    </div>
                     <div id={"dashboard-container"}>
                         <div id={"sidebar-container"}>
-                            <div id={"header-container"}>
-                                <label
-                                    style={{fontSize: 35, fontWeight: "bold"}}>
-                                    TWO
-                                </label>
-                                <label
-                                    style={{fontSize: 20}}> (The better
-                                    <img style={{width: 75}} src={"./oldone.png"} alt={"one"}/>)
-                                </label>
-                            </div>
                             <div id={"leagues-container"}>
                                 <h2>Leagues</h2>
                                 {
@@ -145,11 +145,14 @@ class App extends React.Component{
 
                                     cycleMax={this.state.cycleMax}
                                     filter={this.filter}
-                                    setGoals={this.setGoals} />
+                                    setGoals={this.setGoals}/>
                             }
 
                         </div>
                     </div>
+                    <label id={"spacer"} style={{height:80}}>
+
+                    </label>
                 </div>
 
             </div>
