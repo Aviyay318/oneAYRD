@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./Matches.css"
 function Matches(props){
     return(
         <div id="matches-container">

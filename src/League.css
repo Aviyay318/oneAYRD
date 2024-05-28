@@ -18,3 +18,24 @@
     box-shadow: 3px 0 20px 0 #003f00;
 
 }
+#league-content-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+#goals-mvp-container{
+    border: 1px solid white;
+    box-shadow: 3px 0 20px 0 #003f00;
+    border-radius: 10px;
+}
+
+
+#goals-mvp-container{
+    width: 500px;
+    height: 200px;
+}
+#goals-mvp-table{
+    width: 400px;
+}
