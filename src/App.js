@@ -15,9 +15,9 @@ class App extends React.Component{
         leagueHistory:[],
         filterLeagueHistory:[],
         cycleMin:"1",
-        cycleMax:"15",
-        chosenTeam:false
-
+        cycleMax:"",
+        chosenTeam:false,
+        allCycle:""
 
     }
     filter=()=>{
@@ -46,7 +46,7 @@ class App extends React.Component{
        return this.state.leagueHistory[this.state.leagueHistory.length-1].round
     }
     setMinAndMaxCycle=()=>{
-        this.setState({cycleMin:this.getMin(),cycleMax:this.getMax()})
+        this.setState({cycleMin:this.getMin(),cycleMax:this.getMax(),allCycle:this.getMax()})
     }
     getMatchesByTeam=(teamId)=>{
         axios.get(`https://app.seker.live/fm1/history/${this.state.selectedLeague}/${teamId}`)
@@ -100,7 +100,6 @@ class App extends React.Component{
                                 <img style={{width: 160}} src={"./oldone.png"} alt={"one"}/> )
                             </label>
                         </label>
-                        hi Ram how are you?
                     </div>
                     <div id={"dashboard-container"}>
                         <div id={"sidebar-container"}>
@@ -147,6 +146,7 @@ class App extends React.Component{
                                             cycleMin={this.state.cycleMin}
                                             cycleMax={this.state.cycleMax}
                                             filter={this.filter}
+                                            allCycle={this.state.allCycle}
                                             setGoals={this.setGoals}/>
                             }
 
