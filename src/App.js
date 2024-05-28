@@ -96,14 +96,14 @@ class App extends React.Component{
                             Welcome to TWO
                             <label
                                 style={{fontSize: 50}}> (The better
-                                <img style={{width: 130}} src={"./oldone.png"} alt={"one"}/> )
+                                <img style={{width: 160}} src={"./oldone.png"} alt={"one"}/> )
                             </label>
                         </label>
                     </div>
                     <div id={"dashboard-container"}>
                         <div id={"sidebar-container"}>
-                            <div id={"leagues-container"}>
-                                <h2>Leagues</h2>
+                            <div id={"leagues-names-container"}>
+                                <h2 style={{textAlign:"left"}}>Leagues</h2>
                                 {
                                     this.state.leagues.map((league) => {
                                         return (
@@ -134,18 +134,17 @@ class App extends React.Component{
 
                         <div id={"content-container"}>
                             {
-                                this.state.chosenTeam ? <Team
-                                        players={this.state.players}
-                                        matches={this.state.matches}
-                                        setGoals={this.setGoals}/>
-                                    : this.state.selectedLeague !== "" && <League
-                                    history={this.state.filterLeagueHistory}
-                                    setValue={this.setValue}
-                                    cycleMin={this.state.cycleMin}
-
-                                    cycleMax={this.state.cycleMax}
-                                    filter={this.filter}
-                                    setGoals={this.setGoals}/>
+                                this.state.chosenTeam ?
+                                    <Team players={this.state.players}
+                                          matches={this.state.matches}
+                                          setGoals={this.setGoals}/>
+                                    : this.state.selectedLeague !== "" &&
+                                    <League history={this.state.filterLeagueHistory}
+                                            setValue={this.setValue}
+                                            cycleMin={this.state.cycleMin}
+                                            cycleMax={this.state.cycleMax}
+                                            filter={this.filter}
+                                            setGoals={this.setGoals}/>
                             }
 
                         </div>

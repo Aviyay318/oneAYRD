@@ -1,5 +1,6 @@
 import Matches from "./Matches";
 import matches from "./Matches";
+import "./League.css"
 
 function League(props){
 
@@ -9,16 +10,16 @@ function League(props){
     }
     return(
         <div id={"league-container"}>
-            <h1>League</h1>
-            <h1>League History</h1>
-            <div>
+            <div id={"league-history-container"}>
+                <h1>League History</h1>
                 <p>Choose League Cycle Between 1 and 15:</p>
                 <label>Min:</label>
-                <input type={"number"} value={props.cycleMin} onChange={(event)=>props.setValue("cycleMin",event)}/>
+                <input type={"number"} value={props.cycleMin} onChange={(event) => props.setValue("cycleMin", event)}/>
                 <label>Max:</label>
-                <input type={"number"} value={props.cycleMax} onChange={(event)=>props.setValue("cycleMax",event)}/>
+                <input type={"number"} value={props.cycleMax} onChange={(event) => props.setValue("cycleMax", event)}/>
                 <br/>
-                <button disabled={props.cycleMin<1||props.cycleMax>15} onClick={()=>props.filter()}>Filter</button>
+                <button disabled={props.cycleMin < 1 || props.cycleMax > 15} onClick={() => props.filter()}>Filter
+                </button>
             </div>
             <label>{props.history.length}</label>
             <Matches matches={getCycle(1)} setGoals={props.setGoals}/>
