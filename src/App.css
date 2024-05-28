@@ -44,9 +44,11 @@
   justify-content: left;
 
   /*height: 79vh;*/
-  height: 96.3%;
-  width: 14%;
+  height: 96.5%;
+  width: 20%;
   box-shadow: 4px 0 6px 0 #003f00;
+  border: 1px solid white;
+  border-radius: 10px;
 }
 
 #header-container{
@@ -78,7 +80,7 @@
 }
 #content-container{
   height: 100%;
-  width: 75%;
+  width: 85%;
   border-radius: 50px;
   gap: 30px;
 

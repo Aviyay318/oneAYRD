@@ -153,7 +153,7 @@ class App extends React.Component{
                         </div>
                     </div>
                     <label id={"spacer"} style={{height:80}}>
-
+                        AYRD
                     </label>
                 </div>
 
