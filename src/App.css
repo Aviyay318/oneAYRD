@@ -85,25 +85,3 @@
   gap: 30px;
 
 }
-#goals-mvp-container, #matches-container{
-  border: 1px solid white;
-  box-shadow: 3px 0 20px 0 #003f00;
-  border-radius: 10px;
-}
-
-#matches-container{
-  border-radius: 15px;
-  width: 500px;
-  height: 400px;
-  gap: 4px;
-}
-#matches-table{
-  width: 350px;
-}
-#goals-mvp-container{
-  width: 500px;
-  height: 200px;
-}
-#goals-mvp-table{
-  width: 400px;
-}

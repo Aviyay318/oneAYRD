@@ -9,13 +9,14 @@ function League(props){
         return  props.history.filter((matches)=> {return matches.round===round});
 
     }
-    const getRounds = () => {
+
+    const getAllRounds = () => {
         const rounds = props.allCycle;
 
         const roundArray = Array.from({ length: rounds - 1 }, (_, i) => i + 1);
 
         return roundArray.map(i => (
-            <Matches key={i} matches={getCycle(i)} setGoals={props.setGoals} />
+             <label onClick={()=>props.setCycle(i)}>{i}</label>
         ));
     };
     return(
@@ -28,42 +29,42 @@ function League(props){
                 <label>Max:</label>
                 <input type={"number"} value={props.cycleMax} onChange={(event) => props.setValue("cycleMax", event)}/>
                 <br/>
-                <button disabled={props.cycleMin < 1||props.allCycle} onClick={() => props.filter()}>Filter
+                <button disabled={props.cycleMin < 1||props.cycleMax>props.allCycle} onClick={() => props.filter()}>Filter
                 </button>
             </div>
-            <label>Rounds</label>
-            {
-                getRounds()
-            }
-            <div id={"goals-mvp-container"}>
-                <h2>Goals MVP</h2>
-                <table id={"goals-mvp-table"}>
-                    <th>Name</th>
-                    <th>Goals</th>
-                    <tr>
-                        <td>name1</td>
-                        <td>goals1</td>
-                    </tr>
-                    <tr>
-                        <td>name2</td>
-                        <td>goals2</td>
-                    </tr>
-                    <tr>
-                        <td>name3</td>
-                        <td>goals3</td>
-                    </tr>
-                    {/*{*/}
-                    {/*    props.soccers.map((soccer)=>{*/}
-                    {/*        return(*/}
-                    {/*            <tr>*/}
-                    {/*                <td>{soccer.name}</td>*/}
-                    {/*                <td>{soccer.goals}</td>*/}
-                    {/*            </tr>*/}
-                    {/*        )*/}
-                    {/*    })*/}
-                    {/*}*/}
-                </table>
+            <div id={"league-content-container"}>
+                <div id={"league-matches"}>
+                    <label>Rounds</label>
+                    {
+                        getAllRounds()
+                    }
+                    <Matches matches={getCycle(props.cycle)} setGoals={props.setGoals}/>
+
+
+                </div>
+
+
+                <div id={"goals-mvp-container"}>
+                    <h2>Goals MVP</h2>
+                    <table id={"goals-mvp-table"}>
+                        <tr>
+                        <th>Name</th>
+                        <th>Goals</th>
+                        </tr>
+                        {
+                            props.goalsMVP.map((soccer)=>{
+                                return(
+                                    <tr>
+                                        <td>{soccer.name}</td>
+                                        <td>{soccer.goals}</td>
+                                    </tr>
+                                )
+                            })
+                        }
+                    </table>
+                </div>
             </div>
+
         </div>
     )
 }

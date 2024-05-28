@@ -17,13 +17,28 @@ class App extends React.Component{
         cycleMin:"1",
         cycleMax:"",
         chosenTeam:false,
-        allCycle:""
-
+        allCycle:"",
+        cycle:"1",
+        goalsMVP:[{name:"ram",goals:"3"}]
+    }
+    getGoalsMVP=()=>{
+        const goals = this.getAllGoals()
+    }
+    getAllGoals=()=>{
+       const goals=[]
+        for (let i = 0; i < this.state.leagueHistory.length; i++) {
+            goals.push(this.state.leagueHistory[i].goals)
+        }
+        console.log(goals)
+        return goals
+    }
+    setCycle=(cycle)=>{
+        this.setState({cycle:cycle})
     }
     filter=()=>{
         const leagueHistory = this.state.leagueHistory.filter((cycle)=>
         {return cycle.round>=this.state.cycleMin&&cycle.round<=this.state.cycleMax})
-        this.setState({filterLeagueHistory:leagueHistory})
+        this.setState({filterLeagueHistory:leagueHistory,allCycle:leagueHistory[leagueHistory.length-1].round})
     }
     setValue=(key,event)=>{
         this.setState({[key]:event.target.value})
@@ -92,6 +107,7 @@ class App extends React.Component{
                 <div id={"main-container"}>
                     <div id={"header-container"}>
                         <label>♥️</label>
+                        {/*{this.getGoalsMVP}*/}
                         <label
                             style={{fontSize: 60, fontWeight: "bold"}}>
                             Welcome to TWO
@@ -147,7 +163,10 @@ class App extends React.Component{
                                             cycleMax={this.state.cycleMax}
                                             filter={this.filter}
                                             allCycle={this.state.allCycle}
-                                            setGoals={this.setGoals}/>
+                                            setCycle={this.setCycle}
+                                            cycle={this.state.cycle}
+                                            setGoals={this.setGoals}
+                                            goalsMVP={this.state.goalsMVP}/>
                             }
 
                         </div>
