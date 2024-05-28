@@ -91,6 +91,7 @@ class App extends React.Component{
             <div className="App">
                 <div id={"main-container"}>
                     <div id={"header-container"}>
+                        <label>♥️</label>
                         <label
                             style={{fontSize: 60, fontWeight: "bold"}}>
                             Welcome to TWO
