@@ -111,6 +111,7 @@ class App extends React.Component{
                                                 this.getTeamByLeague(league.id);
                                                 this.getHistory(league.id)
                                             }}>{league.name}</div>
+
                                         )
                                     })
                                 }

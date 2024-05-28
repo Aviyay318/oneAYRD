@@ -12,6 +12,7 @@ function League(props){
         <div id={"league-container"}>
             <div id={"league-history-container"}>
                 <h1>League History</h1>
+
                 <p>Choose League Cycle Between 1 and 15:</p>
                 <label>Min:</label>
                 <input type={"number"} value={props.cycleMin} onChange={(event) => props.setValue("cycleMin", event)}/>
