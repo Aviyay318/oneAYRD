@@ -99,6 +99,7 @@ class App extends React.Component{
                                 <img style={{width: 160}} src={"./oldone.png"} alt={"one"}/> )
                             </label>
                         </label>
+                        hi Ram how are you?
                     </div>
                     <div id={"dashboard-container"}>
                         <div id={"sidebar-container"}>
