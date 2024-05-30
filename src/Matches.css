@@ -1,13 +1,19 @@
-#matches-container{
-    border-radius: 15px;
-    width: 500px;
-    height: 400px;
-    gap: 4px;
-
-    border: 1px solid white;
-    box-shadow: 3px 0 20px 0 #003f00;
-    border-radius: 10px;
+.Matches{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
 }
-#matches-table{
-    width: 350px;
+#matches-title{
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+#round-container{
+}
+
+table{
+    table-layout: auto;
+    text-align: center;
 }

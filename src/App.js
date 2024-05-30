@@ -1,9 +1,10 @@
-import logo from './logo.svg';
 import './App.css';
 import React from "react";
 import axios from "axios";
 import League from "./League";
 import Team from "./Team";
+import stylizedAlert from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 
 class App extends React.Component{
     state={
@@ -101,12 +102,20 @@ class App extends React.Component{
             }
         )
     }
+    newAlert=()=>{
+        const myStylizedAlert = withReactContent(stylizedAlert)
+        myStylizedAlert.fire({
+            title: <h2>אנחנו מצטערים שי</h2>,
+        }).then(()=>{
+            return myStylizedAlert.fire(<h3>😭 בבקשה אל תביא לנו 60</h3>)
+        })
+    }
     render() {
         return (
             <div className="App">
-                <div id={"main-container"}>
+                <div className={"Glass"} id={"main-container"}>
                     <div id={"header-container"}>
-                        <label>♥️</label>
+                        <label onClick={this.newAlert} style={{fontSize:30,cursor:"pointer"}}>♥️</label>
                         {/*{this.getGoalsMVP}*/}
                         <label
                             style={{fontSize: 60, fontWeight: "bold"}}>
@@ -118,8 +127,8 @@ class App extends React.Component{
                         </label>
                     </div>
                     <div id={"dashboard-container"}>
-                        <div id={"sidebar-container"}>
-                            <div id={"leagues-names-container"}>
+                        <div  id={"sidebar-container"}>
+                            <div className={"Glass"} id={"leagues-names-container"}>
                                 <h2 style={{textAlign:"left"}}>Leagues</h2>
                                 {
                                     this.state.leagues.map((league) => {
@@ -134,7 +143,7 @@ class App extends React.Component{
                                 }
                             </div>
                             {
-                                this.state.team.length > 0 && <div id={"team-container"}>
+                                this.state.team.length > 0 && <div className={"Glass"} id={"team-names-container"}>
                                     <h2>Teams</h2>
                                     {
                                         this.state.team.map((team) => {
@@ -149,7 +158,6 @@ class App extends React.Component{
                                 </div>
                             }
                         </div>
-
                         <div id={"content-container"}>
                             {
                                 this.state.chosenTeam ?
@@ -170,10 +178,11 @@ class App extends React.Component{
                             }
 
                         </div>
+                        <div id={"other-sidebar-container"}>
+                            {/*this is an empty sidebar container for SPACING ONLY*/}
+                        </div>
                     </div>
-                    <label id={"spacer"} style={{height:80}}>
-                        AYRD
-                    </label>
+                    <label id={"spacer"} style={{height:80}}>AYRD</label>
                 </div>
 
             </div>

@@ -1,27 +1,45 @@
 import React from "react";
 import "./Matches.css"
 function Matches(props){
+    const toShowRounds=()=>{
+        let result = true;
+        if(props.answer==="no"){
+            result = false;
+        }
+        return result
+    }
+
     return(
-        <div id="matches-container">
-            <h2>Matches</h2>
+        <div className="Matches">
+            <label id={"matches-title"} style={{height:20}}>Matches</label>
             {
-                <table id={"matches-table"}>
+                toShowRounds()
+                &&
+                <div id={"round-container"}>
+                    <label id={"choose-round-label"} style={{fontWeight: "bold", fontSize: 20, height:10}}>Choose Round:</label>
+                    <br/>
+                    {props.rounds}
+                </div>
+            }
+
+
+            {
+                <table id={"matches-table"} style={{textAlign: "center", width:props.tableSize}}>
                     <tr>
                         <th>Round</th>
                         <th>HomeTeam</th>
                         <th>Goals</th>
                         <th>AwayTeam</th>
 
-
                     </tr>
                     {
-                        props.matches.map((match)=>{
-                            return(
+                        props.matches.map((match) => {
+                            return (
                                 <tr>
-                                    <td>{match.round}</td>
-                                    <td>{match.homeTeam.name}</td>
-                                    <td>{props.setGoals(match.goals)}</td>
-                                    <td>{match.awayTeam.name}</td>
+                                    <td width={200}>{match.round}</td>
+                                    <td width={200}>{match.homeTeam.name}</td>
+                                    <td width={200}>{props.setGoals(match.goals)}</td>
+                                    <td width={200}>{match.awayTeam.name}</td>
 
                                 </tr>
                             )
@@ -32,4 +50,5 @@ function Matches(props){
         </div>
     )
 }
+
 export default Matches;

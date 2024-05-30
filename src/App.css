@@ -1,18 +1,37 @@
+:root{
+  --glass-border: 2px solid white;
+  --glass-border-radius: 10px;
+  --glass-box-shadow: 2px 0 14px 1px #003f00;
+
+  --text-color: #194A03;
+  --text-shadow: 1px 1px 2px #003f00;
+}
+
 .App {
   text-align: center;
   background-image: url("../public/img_1.png");
   background-size: cover;
   background-repeat: no-repeat;
-
-  /*background-image: linear-gradient(to top, #74d434, #80cc39, #8ac53f, #91bd45, #96b64c, #91b04b, #8ca94a, #87a349, #799b40, #6a9437, #5c8c2f, #4c8527);*/
   width: 100vw;
   height: 100vh;
-  color: #194A03;
-  text-shadow: 1px 1px 2px #003f00;
-
-
+  color: var(--text-color);
+  text-shadow: var(--text-shadow);
 }
-.App, #main-container, #header-container{
+.Title{
+  height: 9%;
+  width: 95%;
+  border: var(--glass-border);
+  box-shadow: var(--glass-box-shadow);
+  border-radius: var(--glass-border-radius);
+  font-weight: bold;
+  font-size: 2rem;
+}
+.Glass{
+  border: var(--glass-border);
+  box-shadow: var(--glass-box-shadow);
+  border-radius: var(--glass-border-radius);
+}
+.App,.Title, #main-container, #header-container{
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -24,7 +43,6 @@
   border-radius: 50px;
   border: 5px solid white;
   background-color: rgba(255,255,255,0.60);
-  box-shadow: #003f00 0 10px 30px 10px;
 
 }
 
@@ -37,18 +55,14 @@
   height: 100%;
 }
 
-#sidebar-container{
+#sidebar-container, #other-sidebar-container{
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: left;
-
-  /*height: 79vh;*/
-  height: 96.5%;
-  width: 20%;
-  box-shadow: 4px 0 6px 0 #003f00;
-  border: 1px solid white;
-  border-radius: 10px;
+  gap: 40px;
+  height: 98%;
+  width: 19.8%;
 }
 
 #header-container{
@@ -60,11 +74,11 @@
   width: 100%;
   height: 24%;
 }
-#team-container {
+#team-names-container {
   width: 100%;
   height: 70%;
 }
-#leagues-names-container, #team-container {
+#leagues-names-container, #team-names-container {
   box-shadow: 0 15px 10px -14px #003f00;
   font-size: 20px;
 }
@@ -80,7 +94,7 @@
 }
 #content-container{
   height: 100%;
-  width: 85%;
+  width: 61%;
   border-radius: 50px;
   gap: 30px;
 

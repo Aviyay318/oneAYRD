@@ -1,5 +1,4 @@
 import Matches from "./Matches";
-import matches from "./Matches";
 import "./League.css"
 import {formToJSON} from "axios";
 
@@ -16,44 +15,46 @@ function League(props){
         const roundArray = Array.from({ length: rounds - 1 }, (_, i) => i + 1);
 
         return roundArray.map(i => (
-             <label onClick={()=>props.setCycle(i)}>{i}</label>
+             <label className={"round-label"} onClick={()=>props.setCycle(i)}>{i}         </label>
         ));
     };
     return(
-        <div id={"league-container"}>
-            <div id={"league-history-container"}>
-                <h1>League History</h1>
+        <div className={"League"}>
+            <label className={"Title"}>League Data</label>
+            <div className={"Glass"} id={"league-history-container"}>
                 <p>Choose League Cycle between 1 to {props.allCycle}:</p>
-                <label>Min:</label>
-                <input type={"number"} value={props.cycleMin} onChange={(event) => props.setValue("cycleMin", event)}/>
-                <label>Max:</label>
-                <input type={"number"} value={props.cycleMax} onChange={(event) => props.setValue("cycleMax", event)}/>
-                <br/>
-                <button disabled={props.cycleMin < 1||props.cycleMax>props.allCycle} onClick={() => props.filter()}>Filter
+                <div id={"league-filter-container"}>
+                    <label>Min:</label>
+                    <input className={"Glass"} id={"league-filter-input"} type={"number"} value={props.cycleMin}
+                           onChange={(event) => props.setValue("cycleMin", event)}/>
+                    <label>Max:</label>
+                    <input className={"Glass"} id={"league-filter-input"} type={"number"} value={props.cycleMax}
+                           onChange={(event) => props.setValue("cycleMax", event)}/>
+
+                </div>
+                <button className={"Glass"} id={"league-filter-button"}
+                        disabled={props.cycleMin < 1 || props.cycleMax > props.allCycle}
+                        onClick={() => props.filter()}>Filter
                 </button>
             </div>
             <div id={"league-content-container"}>
-                <div id={"league-matches"}>
-                    <label>Rounds</label>
-                    {
-                        getAllRounds()
-                    }
-                    <Matches matches={getCycle(props.cycle)} setGoals={props.setGoals}/>
-
-
+                <div className={"Glass"} id={"league-matches-container"}>
+                    {/*<label>Rounds</label>*/}
+                    {/*{*/}
+                    {/*    getAllRounds()*/}
+                    {/*}*/}
+                    <Matches rounds={getAllRounds()} matches={getCycle(props.cycle)} setGoals={props.setGoals} answer={"yes"} tableSize={400}/>
                 </div>
-
-
-                <div id={"goals-mvp-container"}>
+                <div className={"Glass"} id={"goals-mvp-container"}>
                     <h2>Goals MVP</h2>
                     <table id={"goals-mvp-table"}>
                         <tr>
-                        <th>Name</th>
-                        <th>Goals</th>
+                            <th>Name</th>
+                            <th>Goals</th>
                         </tr>
                         {
-                            props.goalsMVP.map((soccer)=>{
-                                return(
+                            props.goalsMVP.map((soccer) => {
+                                return (
                                     <tr>
                                         <td>{soccer.name}</td>
                                         <td>{soccer.goals}</td>
