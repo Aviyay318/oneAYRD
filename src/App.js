@@ -100,7 +100,8 @@ class App extends React.Component{
     filter=()=>{
         const leagueHistory = this.state.leagueHistory.filter((cycle)=>
         {return cycle.round>=this.state.cycleMin&&cycle.round<=this.state.cycleMax})
-        this.setState({filterLeagueHistory:leagueHistory,allCycle:leagueHistory[leagueHistory.length-1].round})
+        this.setState({filterLeagueHistory:leagueHistory,cycle:leagueHistory[0].round,
+            allCycle:leagueHistory[leagueHistory.length-1].round})
     }
     setCycleMaxValue=(event)=>{
         const value = event.target.value
