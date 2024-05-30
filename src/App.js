@@ -24,11 +24,36 @@ class App extends React.Component{
     }
     getGoalsMVP=()=>{
         const goals = this.getAllGoals()
+        let playersGoals=[]
+        console.log(goals[0].scorer.id)
+        for (let i=0;i<goals.length;i++){
+            let count = 1;
+            for (let j = i+1; j < goals.length; j++) {
+                if (goals[i].scorer.id===goals[j].scorer.id){
+                    count++;
+                }
+            }
+          const isExist = playersGoals.filter((player)=> {return playersGoals.id===goals[i].scorer.id})
+            if (isExist.length===0){
+                const name = goals[i].scorer.firstName+" "+goals[i].scorer.lastName
+                playersGoals.push({id:goals[i].scorer.id,name:name,goals:count})
+            }
+        }
+        playersGoals.sort((a, b) => b.goals - a.goals);
+        const goalsMVP = [];
+        const numberOfTopPlayers = 3;
+        for (let i = 0; i < numberOfTopPlayers && i < playersGoals.length; i++) {
+            goalsMVP.push(playersGoals[i]);
+        }
+        this.setState({goalsMVP:goalsMVP})
+        console.log(goals)
     }
     getAllGoals=()=>{
        const goals=[]
         for (let i = 0; i < this.state.leagueHistory.length; i++) {
-            goals.push(this.state.leagueHistory[i].goals)
+            for (let j = 0; j <this.state.leagueHistory[i].goals.length ; j++) {
+                goals.push(this.state.leagueHistory[i].goals[j])
+            }
         }
         console.log(goals)
         return goals
@@ -50,7 +75,8 @@ class App extends React.Component{
     getHistory=(leagueId)=>{
         axios.get(`https://app.seker.live/fm1/history/${leagueId}`).then(
             response=>{
-                this.setState({leagueHistory:response.data,filterLeagueHistory:response.data},()=>this.setMinAndMaxCycle())
+                this.setState({leagueHistory:response.data,filterLeagueHistory:response.data},
+                    ()=>{this.setMinAndMaxCycle() ;this.getGoalsMVP()})
             })
             }
 
