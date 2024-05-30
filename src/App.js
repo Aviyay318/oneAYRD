@@ -208,9 +208,9 @@ class App extends React.Component{
     newAlert=()=>{
         const myStylizedAlert = withReactContent(stylizedAlert)
         myStylizedAlert.fire({
-            title: <h2>אנחנו מצטערים שי</h2>,
+            title: <h2>שי אנחנו מצטערים על האיחור בעבודה</h2>,
         }).then(()=>{
-            return myStylizedAlert.fire(<h3>😭 בבקשה אל תביא לנו 60</h3>)
+            return myStylizedAlert.fire(<h3>😭 בבקשה תביא לנו 100</h3>)
         })
     }
     render() {
@@ -218,20 +218,19 @@ class App extends React.Component{
             <div className="App">
                 <div className={"Glass"} id={"main-container"}>
                     <div id={"header-container"}>
-                        <label onClick={this.newAlert} style={{fontSize:30,cursor:"pointer"}}>♥️</label>
                         {/*{this.getGoalsMVP}*/}
                         <label
-                            style={{fontSize: 40, fontWeight: "bold"}}>
+                            style={{fontSize: 30, fontWeight: "bold"}}>
                             Welcome to TWO
                             <label
-                                style={{fontSize: 30}}> (The better <img style={{width: 100}} src={"./oldone.png"} alt={"one"}/> )
+                                style={{fontSize: 25}}> (The better <img style={{width: 90}} src={"./oldone.png"} alt={"one"}/> )
                             </label>
                         </label>
                     </div>
                     <div id={"dashboard-container"}>
                         <div  id={"sidebar-container"}>
                             <div className={"Glass"} id={"leagues-names-container"}>
-                                <label style={{fontSize:25, fontWeight:"bold"}}>Leagues</label>
+                                <label className={"Label"} style={{fontSize:25, fontWeight:"bold"}}>Leagues</label>
                                 {
                                     this.state.leagues.map((league) => {
                                         return (
@@ -239,14 +238,13 @@ class App extends React.Component{
                                                 this.getTeamByLeague(league.id);
                                                 this.getHistory(league.id)
                                             }}>{league.name}</div>
-
                                         )
                                     })
                                 }
                             </div>
                             {
                                 this.state.team.length > 0 && <div className={"Glass"} id={"team-names-container"}>
-                                    <label style={{fontSize:25, fontWeight:"bold"}}>Teams</label>
+                                    <label className={"Label"}>Teams</label>
                                     {
                                         this.state.team.map((team) => {
                                             return (
@@ -290,6 +288,7 @@ class App extends React.Component{
                             {/*this is an empty sidebar container for SPACING ONLY*/}
                         </div>
                     </div>
+                    <label onClick={this.newAlert} style={{fontSize:20,fontWeight:"bold",cursor:"pointer"}}>שי תלחץ כאן -> ♥️</label>
                     <label id={"spacer"} style={{height:80}}>AYRD</label>
                 </div>
 

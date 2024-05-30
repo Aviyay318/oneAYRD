@@ -11,12 +11,12 @@ function Matches(props){
 
     return(
         <div className="Matches">
-            <label id={"matches-title"} style={{height:15}}>Matches</label>
+            <label className={"Label"} id={"matches-title"} style={{height:30}}>Matches</label>
             {
                 toShowRounds()
                 &&
                 <div id={"round-container"}>
-                    <label id={"choose-round-label"} style={{fontWeight: "bold", fontSize: 20, height:10}}>Choose Round:</label>
+                    <label className={"Label"} id={"choose-round-label"}>Choose Round:</label>
                     <br/>
                     {props.rounds}
                 </div>

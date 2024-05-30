@@ -15,7 +15,7 @@ function Team(props){
             <label className={"Title"}>Team Data: {props.getTeamName()}</label>
             <div id={"team-upper-content-container"}>
                 <div className={"Glass"} id={"team-players-container"}>
-                    <h2>Players:</h2>
+                    <label className={"Label"}>Players:</label>
                     <table>
                     {getPlayers().map((player) => {
                         return (
@@ -35,7 +35,7 @@ function Team(props){
                     </table>
                 </div>
                 <div className={"Glass"} id={"team-stats-container"}>
-                    <h3>Stats:</h3>
+                    <label className={"Label"}>Stats:</label>
                     <div>Goals: {props.firstHalfVSsecondHalf()}</div>
                     <div>{props.minAndMaxGoal()}</div>
                     <div>{props.minAndMaxCycle()}</div>

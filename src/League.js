@@ -43,7 +43,7 @@ function League(props){
                     </button>
                 </div>
                 <div className={"Glass"} id={"goals-mvp-container"}>
-                    <h2>Goals MVP</h2>
+                    <label className={"Label"}>Goals MVP</label>
                     <table id={"goals-mvp-table"}>
                         <tr>
                             <th>Name</th>

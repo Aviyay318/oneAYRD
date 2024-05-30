@@ -19,7 +19,7 @@
 }
 
 .Title{
-  height: 8%;
+  height: 10%;
   width: 95%;
   border: var(--glass-border);
   box-shadow: var(--glass-box-shadow);
@@ -27,7 +27,10 @@
   font-weight: bold;
   font-size: 2rem;
 }
-
+.Label{
+  font-size: 25px;
+  font-weight: bold;
+}
 .Glass{
   border: var(--glass-border);
   box-shadow: var(--glass-box-shadow);
@@ -42,8 +45,9 @@
 }
 
 #header-container{
+  border: 1px solid white;
   width: 100%;
-  height: 21%;
+  height: 17%;
   font-size: 20px;
 }
 
@@ -70,7 +74,7 @@
   align-items: flex-start;
   justify-content: left;
   gap: 10px;
-  height: 98%;
+  height: 93%;
   width: 19.8%;
 }
 
