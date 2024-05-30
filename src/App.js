@@ -105,7 +105,7 @@ class App extends React.Component{
     setCycleMaxValue=(event)=>{
         const value = event.target.value
         // this.state.cycleMin<value&&
-            if (5<=value&&value<=(this.getMax())-1){
+            if (5<=value&&value<=(this.getMax())){
             this.setState({cycleMax:value})
         }
 
@@ -132,7 +132,7 @@ class App extends React.Component{
     }
     getMax=()=>{
         if (this.state.leagueHistory.length>0){
-            return (this.state.leagueHistory[this.state.leagueHistory.length-1].round)-1
+            return this.state.leagueHistory[this.state.leagueHistory.length-1].round
         }
     }
     setMinAndMaxCycle=()=>{
