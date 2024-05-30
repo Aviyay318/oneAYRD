@@ -19,10 +19,10 @@ class App extends React.Component{
         cycleMin:"",
         cycleMax:"",
         chosenTeam:false,
-        allCycle:"",
         cycle:1,
         goalsMVP:[{name:"ram",goals:"3"}]
     }
+
     getLeagueName =()=>{
         const league = this.state.leagues.filter((league)=> {return league.id===this.state.selectedLeague})
         return league[0].name
@@ -100,13 +100,12 @@ class App extends React.Component{
     filter=()=>{
         const leagueHistory = this.state.leagueHistory.filter((cycle)=>
         {return cycle.round>=this.state.cycleMin&&cycle.round<=this.state.cycleMax})
-        this.setState({filterLeagueHistory:leagueHistory,cycle:leagueHistory[0].round,
-            allCycle:leagueHistory[leagueHistory.length-1].round})
+        this.setState({filterLeagueHistory:leagueHistory,cycle:leagueHistory[0].round})
     }
     setCycleMaxValue=(event)=>{
         const value = event.target.value
         // this.state.cycleMin<value&&
-            if (5<=value&&value<=(this.state.allCycle-1)){
+            if (5<=value&&value<=(this.getMax())-1){
             this.setState({cycleMax:value})
         }
 
@@ -132,10 +131,12 @@ class App extends React.Component{
         return this.state.leagueHistory[0].round
     }
     getMax=()=>{
-       return this.state.leagueHistory[this.state.leagueHistory.length-1].round
+        if (this.state.leagueHistory.length>0){
+            return (this.state.leagueHistory[this.state.leagueHistory.length-1].round)-1
+        }
     }
     setMinAndMaxCycle=()=>{
-        this.setState({cycleMin:this.getMin(),cycleMax:(this.getMax()-1),allCycle:this.getMax()})
+        this.setState({cycleMin:this.getMin(),cycleMax:(this.getMax())})
     }
     getMatchesByTeam=(teamId)=>{
         axios.get(`https://app.seker.live/fm1/history/${this.state.selectedLeague}/${teamId}`)
@@ -273,7 +274,7 @@ class App extends React.Component{
                                             cycleMin={this.state.cycleMin}
                                             cycleMax={this.state.cycleMax}
                                             filter={this.filter}
-                                            allCycle={this.state.allCycle}
+                                            getMax={this.getMax}
                                             setCycle={this.setCycle}
                                             cycle={this.state.cycle}
                                             setGoals={this.setGoals}

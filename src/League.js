@@ -10,7 +10,7 @@ function League(props){
     }
 
     const getAllRounds = () => {
-        const rounds = props.allCycle;
+        const rounds = props.getMax();
         const roundArray=[]
         if (props.history.length>0){
             for (let i = props.history[0].round; i <= props.history[props.history.length-1].round; i++) {
@@ -26,7 +26,7 @@ function League(props){
         <div className={"League"}>
             <label className={"Title"}>League Data - {props.getLeagueName()}</label>
             <div className={"Glass"} id={"league-history-container"}>
-                <p>Choose League Cycle between 1 to {(props.allCycle-1)}:</p>
+                <p>Choose League Cycle between 1 to {props.getMax()}:</p>
                 <div id={"league-filter-container"}>
                     <label>Min:</label>
                     <input className={"Glass"} id={"league-filter-input"} type={"number"} value={props.cycleMin}
@@ -37,7 +37,6 @@ function League(props){
 
                 </div>
                 <button className={"Glass"} id={"league-filter-button"}
-                        disabled={props.cycleMin < 1 || props.cycleMax > props.allCycle}
                         onClick={() => props.filter()}>Filter
                 </button>
             </div>
