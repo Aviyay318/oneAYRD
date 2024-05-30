@@ -16,12 +16,12 @@ function League(props){
             roundArray.push(i)
         }
         return roundArray.map(i => (
-             <label className={"round-label"} onClick={()=>props.setCycle(i)}>{i}         </label>
+             <label className={"round-label"} onClick={()=>props.setCycle(i)}>{i }  </label>
         ));
     };
     return(
         <div className={"League"}>
-            <label className={"Title"}>League Data</label>
+            <label className={"Title"}>League Data - {props.getLeagueName()}</label>
             <div className={"Glass"} id={"league-history-container"}>
                 <p>Choose League Cycle between 1 to {(props.allCycle-1)}:</p>
                 <div id={"league-filter-container"}>

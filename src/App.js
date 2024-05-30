@@ -5,6 +5,7 @@ import League from "./League";
 import Team from "./Team";
 import stylizedAlert from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
+import league from "./League";
 
 class App extends React.Component{
     state={
@@ -21,6 +22,10 @@ class App extends React.Component{
         allCycle:"",
         cycle:1,
         goalsMVP:[{name:"ram",goals:"3"}]
+    }
+    getLeagueName =()=>{
+        const league = this.state.leagues.filter((league)=> {return league.id===this.state.selectedLeague})
+        return league[0].name
     }
     minAndMaxGoal=()=>{
         let minGoal=100;
@@ -261,6 +266,7 @@ class App extends React.Component{
                                           minAndMaxCycle={this.minAndMaxCycle}/>
                                     : this.state.selectedLeague !== "" &&
                                     <League history={this.state.filterLeagueHistory}
+                                            getLeagueName={this.getLeagueName}
                                             setCycleMaxValue={this.setCycleMaxValue}
                                             setCycleMinValue={this.setCycleMinValue}
                                             cycleMin={this.state.cycleMin}
