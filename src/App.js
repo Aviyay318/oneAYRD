@@ -141,7 +141,7 @@ class App extends React.Component{
     getTeamByLeague=(leagueId)=>{
         axios.get(`https://app.seker.live/fm1/teams/${leagueId}`)
             .then(response => {
-                this.setState({team:response.data,selectedLeague:leagueId,chosenTeam:false})
+                this.setState({team:response.data,selectedLeague:leagueId,chosenTeam:false,cycle:1})
             })
     }
     getHomeGoals=(goals)=>{
