@@ -288,8 +288,8 @@ class App extends React.Component{
                             {/*this is an empty sidebar container for SPACING ONLY*/}
                         </div>
                     </div>
-                    <label onClick={this.newAlert} style={{fontSize:20,fontWeight:"bold",cursor:"pointer"}}>שי תלחץ כאן -> ♥️</label>
-                    <label id={"spacer"} style={{height:80}}>AYRD</label>
+                    <label onClick={this.newAlert} style={{fontSize:20,fontWeight:"bold",cursor:"pointer",height:30}}>שי תלחץ כאן -> ♥️</label>
+                    <label id={"spacer"} style={{height:50}}>AYRD</label>
                 </div>
 
             </div>
