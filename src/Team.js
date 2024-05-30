@@ -22,11 +22,10 @@ function Team(props){
                 </div>
                 <div className={"Glass"} id={"team-stats-container"}>
                     <h3>Stats:</h3>
-                    <div>first half goals VS second half goals</div>
-                    <div>the earlier goal:</div>
-                    <div>the last goal:</div>
-                    <div>the cycle with most goals:</div>
-                    <div>the cycle with last goals:</div>
+                    <div>Goals: {props.firstHalfVSsecondHalf()}</div>
+                    <div>{props.minAndMaxGoal()}</div>
+                    <div>{props.minAndMaxCycle()}</div>
+
                 </div>
             </div>
             <div id={"team-lower-content-container"}>
