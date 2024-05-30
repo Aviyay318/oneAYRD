@@ -18,7 +18,7 @@ class App extends React.Component{
         filterLeagueHistory:[],
         cycleMin:"",
         cycleMax:"",
-        chosenTeam:false,
+        chosenTeam:-1,
         cycle:1,
         goalsMVP:[{name:"ram",goals:"3"}]
     }
@@ -26,6 +26,10 @@ class App extends React.Component{
     getLeagueName =()=>{
         const league = this.state.leagues.filter((league)=> {return league.id===this.state.selectedLeague})
         return league[0].name
+    }
+    getTeamName =()=>{
+        const team = this.state.team.filter((team)=> {return team.id===this.state.chosenTeam})
+        return team[0].name
     }
     minAndMaxGoal=()=>{
         let minGoal=100;
@@ -142,13 +146,13 @@ class App extends React.Component{
         axios.get(`https://app.seker.live/fm1/history/${this.state.selectedLeague}/${teamId}`)
             .then(response => {
                 console.log(response.data)
-                this.setState({matches:response.data,chosenTeam:true});
+                this.setState({matches:response.data,chosenTeam:teamId});
             })
     }
     getTeamByLeague=(leagueId)=>{
         axios.get(`https://app.seker.live/fm1/teams/${leagueId}`)
             .then(response => {
-                this.setState({team:response.data,selectedLeague:leagueId,chosenTeam:false,cycle:1})
+                this.setState({team:response.data,selectedLeague:leagueId,chosenTeam:-1,cycle:1})
             })
     }
     getHomeGoals=(goals)=>{
@@ -259,8 +263,9 @@ class App extends React.Component{
                         </div>
                         <div id={"content-container"}>
                             {
-                                this.state.chosenTeam ?
+                                this.state.chosenTeam!==-1 ?
                                     <Team players={this.state.players}
+                                          getTeamName={this.getTeamName}
                                           matches={this.state.matches}
                                           setGoals={this.setGoals}
                                           firstHalfVSsecondHalf={this.firstHalfVSsecondHalf}

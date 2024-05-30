@@ -5,7 +5,7 @@ function Team(props){
     return(
         <div className={"Team"}>
 
-            <label className={"Title"}>Team Data: </label>
+            <label className={"Title"}>Team Data: {props.getTeamName()}</label>
             <div id={"team-upper-content-container"}>
                 <div className={"Glass"} id={"team-players-container"}>
                     <h2>Players:</h2>
