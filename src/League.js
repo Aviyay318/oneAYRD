@@ -12,9 +12,12 @@ function League(props){
     const getAllRounds = () => {
         const rounds = props.allCycle;
         const roundArray=[]
-        for (let i = props.history[0].round; i <= props.history[props.history.length-1].round; i++) {
-            roundArray.push(i)
+        if (props.history.length>0){
+            for (let i = props.history[0].round; i <= props.history[props.history.length-1].round; i++) {
+                roundArray.push(i)
+            }
         }
+
         return roundArray.map(i => (
              <label className={"round-label"} onClick={()=>props.setCycle(i)}>{i }  </label>
         ));

@@ -106,7 +106,7 @@ class App extends React.Component{
     setCycleMaxValue=(event)=>{
         const value = event.target.value
         // this.state.cycleMin<value&&
-            if (value<=(this.state.allCycle-1)){
+            if (5<=value&&value<=(this.state.allCycle-1)){
             this.setState({cycleMax:value})
         }
 
@@ -114,7 +114,7 @@ class App extends React.Component{
     setCycleMinValue=(event)=>{
         const value = event.target.value
         // this.state.cycleMax>value&&
-        if (value>0){
+        if (5>=value&&value>0){
             this.setState({cycleMin:value})
             }
         }
