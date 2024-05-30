@@ -221,10 +221,10 @@ class App extends React.Component{
                         <label onClick={this.newAlert} style={{fontSize:30,cursor:"pointer"}}>♥️</label>
                         {/*{this.getGoalsMVP}*/}
                         <label
-                            style={{fontSize: 50, fontWeight: "bold"}}>
+                            style={{fontSize: 40, fontWeight: "bold"}}>
                             Welcome to TWO
                             <label
-                                style={{fontSize: 40}}> (The better <img style={{width: 150}} src={"./oldone.png"} alt={"one"}/> )
+                                style={{fontSize: 30}}> (The better <img style={{width: 100}} src={"./oldone.png"} alt={"one"}/> )
                             </label>
                         </label>
                     </div>
