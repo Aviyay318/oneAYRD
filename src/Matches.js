@@ -11,7 +11,7 @@ function Matches(props){
 
     return(
         <div className="Matches">
-            <label id={"matches-title"} style={{height:20}}>Matches</label>
+            <label id={"matches-title"} style={{height:15}}>Matches</label>
             {
                 toShowRounds()
                 &&

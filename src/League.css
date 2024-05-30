@@ -10,13 +10,7 @@
     justify-content: center;
     text-align: center;
 }
-#league-history-container{
-    height: 25%;
-    width: 95%;
-    gap: 20px;
-    font-size: 20px;
 
-}
 #league-content-container,#league-filter-container,#league-matches-container{
     display: flex;
     flex-direction: row;
