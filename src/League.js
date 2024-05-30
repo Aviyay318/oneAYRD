@@ -25,28 +25,22 @@ function League(props){
     return(
         <div className={"League"}>
             <label className={"Title"}>League Data - {props.getLeagueName()}</label>
-            <div className={"Glass"} id={"league-history-container"}>
-                <p>Choose League Cycle between 1 to {props.getMax()}:</p>
-                <div id={"league-filter-container"}>
-                    <label>Min:</label>
-                    <input className={"Glass"} id={"league-filter-input"} type={"number"} value={props.cycleMin}
-                              onChange={(event) => props.setCycleMinValue(event)}/>
-                    <label>Max:</label>
-                    <input className={"Glass"} id={"league-filter-input"} type={"number"} value={props.cycleMax}
-                             onChange={(event) => props.setCycleMaxValue(event)}/>
 
-                </div>
-                <button className={"Glass"} id={"league-filter-button"}
-                        onClick={() => props.filter()}>Filter
-                </button>
-            </div>
             <div id={"league-content-container"}>
-                <div className={"Glass"} id={"league-matches-container"}>
-                    {/*<label>Rounds</label>*/}
-                    {/*{*/}
-                    {/*    getAllRounds()*/}
-                    {/*}*/}
-                    <Matches rounds={getAllRounds()} matches={getCycle(props.cycle)} setGoals={props.setGoals} answer={"yes"} tableSize={400}/>
+                <div className={"Glass"} id={"league-history-container"}>
+                    <p>Choose League Cycle between 1 to {props.getMax()}:</p>
+                    <div id={"league-filter-container"}>
+                        <label>Min:</label>
+                        <input className={"Glass"} id={"league-filter-input"} type={"number"} value={props.cycleMin}
+                               onChange={(event) => props.setCycleMinValue(event)}/>
+                        <label>Max:</label>
+                        <input className={"Glass"} id={"league-filter-input"} type={"number"} value={props.cycleMax}
+                               onChange={(event) => props.setCycleMaxValue(event)}/>
+
+                    </div>
+                    <button className={"Glass"} id={"league-filter-button"}
+                            onClick={() => props.filter()}>Filter
+                    </button>
                 </div>
                 <div className={"Glass"} id={"goals-mvp-container"}>
                     <h2>Goals MVP</h2>
@@ -67,6 +61,9 @@ function League(props){
                         }
                     </table>
                 </div>
+            </div>
+            <div className={"Glass"} id={"league-matches-container"}>
+                <Matches rounds={getAllRounds()} matches={getCycle(props.cycle)} setGoals={props.setGoals} answer={"yes"} tableSize={1000}/>
             </div>
 
         </div>

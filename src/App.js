@@ -221,18 +221,17 @@ class App extends React.Component{
                         <label onClick={this.newAlert} style={{fontSize:30,cursor:"pointer"}}>♥️</label>
                         {/*{this.getGoalsMVP}*/}
                         <label
-                            style={{fontSize: 60, fontWeight: "bold"}}>
+                            style={{fontSize: 50, fontWeight: "bold"}}>
                             Welcome to TWO
                             <label
-                                style={{fontSize: 50}}> (The better
-                                <img style={{width: 160}} src={"./oldone.png"} alt={"one"}/> )
+                                style={{fontSize: 40}}> (The better <img style={{width: 150}} src={"./oldone.png"} alt={"one"}/> )
                             </label>
                         </label>
                     </div>
                     <div id={"dashboard-container"}>
                         <div  id={"sidebar-container"}>
                             <div className={"Glass"} id={"leagues-names-container"}>
-                                <h2 style={{textAlign:"left"}}>Leagues</h2>
+                                <label style={{fontSize:25, fontWeight:"bold"}}>Leagues</label>
                                 {
                                     this.state.leagues.map((league) => {
                                         return (
@@ -247,7 +246,7 @@ class App extends React.Component{
                             </div>
                             {
                                 this.state.team.length > 0 && <div className={"Glass"} id={"team-names-container"}>
-                                    <h2>Teams</h2>
+                                    <label style={{fontSize:25, fontWeight:"bold"}}>Teams</label>
                                     {
                                         this.state.team.map((team) => {
                                             return (

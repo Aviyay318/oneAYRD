@@ -18,7 +18,7 @@
   text-shadow: var(--text-shadow);
 }
 .Title{
-  height: 9%;
+  height: 8%;
   width: 95%;
   border: var(--glass-border);
   box-shadow: var(--glass-box-shadow);
@@ -37,13 +37,17 @@
   align-items: center;
   justify-content: center;
 }
+#header-container{
+  width: 100%;
+  height: 21%;
+  font-size: 20px;
+}
 #main-container{
   width: 89%;
   height: 90%;
   border-radius: 50px;
   border: 5px solid white;
   background-color: rgba(255,255,255,0.60);
-
 }
 
 #dashboard-container{
@@ -60,23 +64,19 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: left;
-  gap: 40px;
+  gap: 10px;
   height: 98%;
   width: 19.8%;
 }
 
-#header-container{
-  width: 100%;
-  height: 150px;
-  font-size: 20px;
-}
+
 #leagues-names-container{
   width: 100%;
-  height: 24%;
+  height: 18%;
 }
 #team-names-container {
   width: 100%;
-  height: 70%;
+  height: 90%;
 }
 #leagues-names-container, #team-names-container {
   box-shadow: 0 15px 10px -14px #003f00;
