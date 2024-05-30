@@ -45,8 +45,8 @@ class App extends React.Component{
             }
         }
         return <div>
-            <div>The earlier goal: {minGoal} minute</div>
-            <div>The last goal: {maxGoal} minute</div>
+            <div>The earlier goal: minute {minGoal} </div>
+            <div>The last goal:  minute {maxGoal}</div>
         </div>
     }
     firstHalfVSsecondHalf=()=>{
